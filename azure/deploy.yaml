@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: monolith
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: item
+  template:
+    metadata:
+      labels:
+        app: item
+    spec:
+      containers:
+        - name: item
+          image: gdmrkt.azurecr.io/item:latest
+          ports:
+            - containerPort: 8080
